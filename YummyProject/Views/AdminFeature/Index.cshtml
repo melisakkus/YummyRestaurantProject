@@ -1,0 +1,35 @@
+﻿@model List<YummyProject.Models.Feature>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Öne Çıkan Alan</h2>
+<table class="table table-hover table-bordered">
+
+    <tr>
+        <th>#</th>
+        <th>Resim</th>
+        <th>Başlık</th>
+        <th>Açıklama</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.FeatureId</th>
+            <td><img src="@item.ImageUrl" style="width:50px;height:50px" /></td>
+            <td>@item.Title</td>
+            <td>@item.Description</td>
+            <td><a href="/AdminFeature/DeleteFeature/@item.FeatureId" class="btn btn-danger">Sil</a></td>
+            <td><a href="#" class="btn btn-info">Güncelle</a></td>
+        </tr>
+    }
+</table>
+<br />
+<div class="text-center">
+    <a href="/AdminFeature/AddFeature" class="btn btn-primary">Yeni Öne Çıkan Alanı Ekle</a>
+</div>
+
