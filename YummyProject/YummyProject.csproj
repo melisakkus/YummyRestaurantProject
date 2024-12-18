@@ -299,7 +299,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\UILayout\Index.cshtml" />
     <Content Include="Views\Default\Index.cshtml" />
     <Content Include="Views\Default\DefaultFeature.cshtml" />
     <Content Include="Templates\yummy-red-1.0.0\assets\.DS_Store" />
@@ -337,6 +336,16 @@
     <Content Include="Views\Default\DefaultAbout.cshtml" />
     <Content Include="Views\AdminFeature\Index.cshtml" />
     <Content Include="Views\AdminFeature\AddFeature.cshtml" />
+    <Content Include="Views\UILayout\Index.cshtml" />
+    <Content Include="Views\Default\DefaultService.cshtml" />
+    <Content Include="Views\Default\DefaultProduct.cshtml" />
+    <Content Include="Views\Default\DefaultTestimonial.cshtml" />
+    <Content Include="Views\Default\DefaultEvent.cshtml" />
+    <Content Include="Views\Default\DefaultChef.cshtml" />
+    <Content Include="Views\Default\DefaultBooking.cshtml" />
+    <Content Include="Views\Default\DefaultPhotoGallery.cshtml" />
+    <Content Include="Views\Default\DefaultMessage.cshtml" />
+    <Content Include="Views\Default\DefaultContact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

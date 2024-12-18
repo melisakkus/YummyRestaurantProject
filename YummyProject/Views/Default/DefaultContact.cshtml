@@ -1,0 +1,83 @@
+﻿@model List<YummyProject.Models.ContactInfo>
+
+<section id="contact" class="contact section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>İletişim & Ulaşım</h2>
+        <p><span>Bİzİmle</span> <span class="description-title">İletİşİme Geçİn</span></p>
+    </div><!-- End Section Title -->
+
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+
+
+        @foreach (var item in Model)
+        {
+            <!--if (!string.IsNullOrEmpty(item.MapUrl))
+            {
+
+                <div class="mb-5">
+                    <iframe style="width: 100%; height: 400px;" src="@item.MapUrl" frameborder="0" allowfullscreen=""></iframe>
+                </div>-->
+            <!-- End Google Maps -->
+            <!--}
+            else
+            {
+                <p>Harita mevcut değil.</p>
+            }-->
+            <p>@item.MapUrl</p>
+
+
+            <div class="row gy-4">
+
+                <div class="col-md-6">
+                    <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="200">
+                        <i class="icon bi bi-geo-alt flex-shrink-0"></i>
+                        <div>
+                            <h3>Adres</h3>
+                            <p>@item.Address</p>
+                        </div>
+                    </div>
+                </div><!-- End Info Item -->
+
+                <div class="col-md-6">
+                    <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="300">
+                        <i class="icon bi bi-telephone flex-shrink-0"></i>
+                        <div>
+                            <h3>Telefon  No</h3>
+                            <p>@item.PhoneNumber</p>
+                        </div>
+                    </div>
+                </div><!-- End Info Item -->
+
+                <div class="col-md-6">
+                    <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="400">
+                        <i class="icon bi bi-envelope flex-shrink-0"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>@item.Email</p>
+                        </div>
+                    </div>
+                </div><!-- End Info Item -->
+
+                <div class="col-md-6">
+                    <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="500">
+                        <i class="icon bi bi-clock flex-shrink-0"></i>
+                        <div>
+                            <h3>Çalışma Saatleri<br></h3>
+                            <p>@item.OpenHours </p>
+                        </div>
+                    </div>
+                </div><!-- End Info Item -->
+
+            </div>
+        }
+
+        <!--Message Form -->
+        @Html.Action("DefaultMessage")
+        <!--End Message Form -->
+    </div>
+
+</section>
