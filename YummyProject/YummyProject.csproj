@@ -156,6 +156,7 @@
     <Compile Include="Models\About.cs" />
     <Compile Include="Models\Booking.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\CategoryProduct.cs" />
     <Compile Include="Models\Chef.cs" />
     <Compile Include="Models\ChefSocial.cs" />
     <Compile Include="Models\ContactInfo.cs" />
