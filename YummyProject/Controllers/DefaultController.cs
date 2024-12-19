@@ -34,21 +34,9 @@ namespace YummyProject.Controllers
             return PartialView(values);
         }
 
-        //CategoryProduct categoryProduct = new CategoryProduct();
-        //public PartialViewResult DefaultProduct() // eksik
-        //{
-        //    categoryProduct.ReachProductsC1 = context.Products.Where(x=>x.CategoryId == 1).ToList();
-        //    categoryProduct.ReachProductsC2 = context.Products.Where(x => x.CategoryId == 2).ToList();
-        //    categoryProduct.ReachProductsC3 = context.Products.Where(x => x.CategoryId == 3).ToList();
-        //    categoryProduct.ReachProductsC4 = context.Products.Where(x => x.CategoryId == 4).ToList();
-
-        //    categoryProduct.ReachCategories = context.Categories.ToList();
-        //    return PartialView(categoryProduct);
-        //}
-
         public PartialViewResult DefaultProduct() // eksik
         {
-            var values = context.Products.ToList();
+            var values = context.Categories.ToList(); 
             return PartialView(values);
         }
 
