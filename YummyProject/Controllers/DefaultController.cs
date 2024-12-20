@@ -55,7 +55,7 @@ namespace YummyProject.Controllers
 
         public PartialViewResult DefaultChef() // sosyal medya eksik
         {
-            var values = context.Chefs.ToList();
+            var values = context.Chefs.OrderByDescending(x=>x.ChefId).ToList();
             return PartialView(values);
         }
 

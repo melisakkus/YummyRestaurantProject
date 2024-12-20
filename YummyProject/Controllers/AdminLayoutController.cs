@@ -8,7 +8,7 @@ namespace YummyProject.Controllers
 {
     public class AdminLayoutController : Controller
     {
-        // GET: AdminLayout
+        
         public ActionResult Index()
         {
             return View();
