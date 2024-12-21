@@ -1,0 +1,47 @@
+﻿@model YummyProject.Models.About
+@{
+    ViewBag.Title = "AddAbout";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+<br />
+<h2>Yeni Hakkımda Alanı Ekle</h2>
+<br />
+
+<form method="post" class="form-control">
+
+    <label><strong>Resim 1</strong></label>
+    @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
+    <br />
+
+    <label><strong>Resim 2</strong></label>
+    @Html.TextBoxFor(x => x.ImageUrl2, new { @class = "form-control" })
+    <br />
+
+    <label><strong>Cümle 1</strong></label>
+    @Html.TextBoxFor(x => x.Item1, new { @class = "form-control" })
+    <br />
+
+    <label><strong>Cümle 2</strong></label>
+    @Html.TextBoxFor(x => x.Item2, new { @class = "form-control" })
+    <br />
+
+    <label><strong>Cümle 3</strong></label>
+    @Html.TextBoxFor(x => x.Item3, new { @class = "form-control" })
+    <br />
+
+    <label><strong>Açıklama</strong></label>
+    @Html.TextBoxFor(x => x.Description, new { @class = "form-control" })
+    <br />
+
+    <label><strong>Video</strong></label>
+    @Html.TextBoxFor(x => x.VideoUrl, new { @class = "form-control" })
+    <br />
+
+    <label><strong>Telefon No : </strong></label>
+    @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control" })
+    <br />
+
+    <div class="text-center">
+        <button class="btn btn-success">Kaydet</button>
+    </div>
+</form>

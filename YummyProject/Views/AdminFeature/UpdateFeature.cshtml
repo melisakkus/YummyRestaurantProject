@@ -1,14 +1,16 @@
 ﻿@model YummyProject.Models.Feature
 @{
-    ViewBag.Title = "AddFeature";
+    ViewBag.Title = "UpdateFeature";
     Layout = "~/Views/AdminLayout/Index.cshtml";
 }
 
 <br />
-<h2>Yeni Alan Ekleme Sayfası</h2>
+<h2>Alan Güncelleme Sayfası</h2>
 <br />
 
 <form method="post" class="form-control">
+    
+    @Html.HiddenFor(x=>x.FeatureId)
 
     <label><strong>Resim Url</strong></label>
     @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
@@ -25,7 +27,7 @@
     <br />
 
     <label><strong>Açıklama</strong></label>
-    @Html.TextAreaFor(x => x.Description, 1, 4, new { @class = "form-control" })
+    @Html.TextBoxFor(x => x.Description, new { @class = "form-control" })
     <div class="text-danger">
         @Html.ValidationMessageFor(x => x.Description)
     </div>
@@ -38,9 +40,8 @@
     </div>
     <br />
 
-    <div class="text-danger">@ViewBag.Error</div>
-
     <div class="text-center">
-        <button class="btn btn-success">Kaydet</button>
+        <button class="btn btn-primary">Güncelle</button>
     </div>
 </form>
+

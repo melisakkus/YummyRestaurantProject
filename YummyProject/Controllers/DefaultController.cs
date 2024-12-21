@@ -34,7 +34,7 @@ namespace YummyProject.Controllers
             return PartialView(values);
         }
 
-        public PartialViewResult DefaultProduct() // eksik
+        public PartialViewResult DefaultProduct() 
         {
             var values = context.Categories.ToList(); 
             return PartialView(values);
@@ -53,7 +53,7 @@ namespace YummyProject.Controllers
             return PartialView(values);
         }
 
-        public PartialViewResult DefaultChef() // sosyal medya eksik
+        public PartialViewResult DefaultChef() 
         {
             var values = context.Chefs.OrderByDescending(x=>x.ChefId).ToList();
             return PartialView(values);
@@ -75,7 +75,7 @@ namespace YummyProject.Controllers
             return PartialView();
         }
 
-        public PartialViewResult DefaultContact() //item.mapurl çalışmıyor
+        public PartialViewResult DefaultContact() 
         {
             var values = context.ContactInfos.ToList();
             return PartialView(values);

@@ -129,6 +129,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Context\YummyContext.cs" />
+    <Compile Include="Controllers\AdminAboutController.cs" />
     <Compile Include="Controllers\AdminDashboardController.cs" />
     <Compile Include="Controllers\AdminFeatureController.cs" />
     <Compile Include="Controllers\AdminLayoutController.cs" />
@@ -381,6 +382,12 @@
     <Content Include="Views\AdminDashboard\Index.cshtml" />
     <Content Include="Views\UILayout\UILayoutFooter.cshtml" />
     <Content Include="Views\UILayout\UILayoutFooterSocial.cshtml" />
+    <Content Include="Views\AdminFeature\UpdateFeature.cshtml" />
+    <Content Include="Views\AdminLayout\AdminLayoutNavbar.cshtml" />
+    <Content Include="Views\AdminLayout\AdminLayoutSidebar.cshtml" />
+    <Content Include="Views\AdminAbout\Index.cshtml" />
+    <Content Include="Views\AdminAbout\AddAbout.cshtml" />
+    <Content Include="Views\AdminAbout\UpdateAbout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
