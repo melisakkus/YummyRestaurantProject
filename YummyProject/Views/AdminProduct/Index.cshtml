@@ -1,0 +1,41 @@
+﻿@model List<YummyProject.Models.Product>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<br />
+<h2>Ürün Düzenleme Sayfası</h2>
+<br />
+
+<table class="table table-hover">
+    <tr>
+        <th>Resim</th>
+        <th>İsim</th>
+        <th>İçindekiler</th>
+        <th>Ücret</th>
+        <th>Kategori</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td><img src="@item.ImageUrl" style="width:40px;height:40px"/></td>
+            <td>@item.ProductName</td>
+            <td>@item.Ingredients</td>
+            <td>₺@item.Price</td>
+            <td>@item.Category.CategoryName</td>
+            <td><a href="/AdminProduct/DeleteProduct/@item.ProductId" class="btn btn-danger">Sil</a></td>
+            <td><a href="/AdminProduct/UpdateProduct/@item.ProductId" class="btn btn-primary">Güncelle</a></td>
+        </tr>
+    }
+</table>
+
+<br />
+<div class="text-center">
+    <a href="/AdminProduct/AddProduct" class="btn btn-success">Yeni Ürün Ekle</a>
+</div>
+

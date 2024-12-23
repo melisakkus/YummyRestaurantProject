@@ -1,0 +1,44 @@
+﻿@model List<YummyProject.Models.Booking>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<br />
+<h2>Rezervasyon Düzenleme Sayfası</h2>
+<br />
+
+<table class="table table-hover">
+    <tr>
+        <th>Ad Soyad</th>
+        <th>Email</th>
+        <th>Tel No</th>
+        <th>Tarih</th>
+        <th>Kişi Sayısı</th>
+        <th>Mesaj</th>
+        <th>Onay Durumu</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Email</td>
+            <td>@item.PhoneNumber</td>
+            <td>@item.BookingDate</td>
+            <td>@item.PersonCount</td>
+            <td>@item.MessageContent</td>
+            <td>@item.IsApproved</td>
+            <td><a href="/AdminBooking/DeleteBooking/@item.BookingId" class="btn btn-danger">Sil</a></td>
+            <td><a href="/AdminBooking/UpdateBooking/@item.BookingId" class="btn btn-primary">Güncelle</a></td>
+        </tr>
+    }
+</table>
+
+<br />
+<div class="text-center">
+    <a href="/AdminBooking/AddBooking" class="btn btn-success">Yeni Rezervasyon Ekle</a>
+</div>

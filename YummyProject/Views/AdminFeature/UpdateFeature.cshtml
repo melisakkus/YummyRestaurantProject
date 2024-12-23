@@ -9,8 +9,8 @@
 <br />
 
 <form method="post" class="form-control">
-    
-    @Html.HiddenFor(x=>x.FeatureId)
+
+    @Html.HiddenFor(x => x.FeatureId)
 
     <label><strong>Resim Url</strong></label>
     @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
@@ -27,7 +27,7 @@
     <br />
 
     <label><strong>Açıklama</strong></label>
-    @Html.TextBoxFor(x => x.Description, new { @class = "form-control" })
+    @Html.TextAreaFor(x => x.Description, 3, 1, new { @class = "form-control" })
     <div class="text-danger">
         @Html.ValidationMessageFor(x => x.Description)
     </div>

@@ -1,0 +1,31 @@
+﻿@model YummyProject.Models.Message
+@{
+    ViewBag.Title = "AddMessage";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<br />
+<h2>Mesaj Ekleme Sayfası</h2>
+<br />
+
+<form method="post" class="form-control">
+
+    <label><strong>Ad Soyad</strong></label>
+    @Html.TextBoxFor(x => x.NameSurname, new { @class = "form-control" })
+    <br />
+    <label><strong>Email</strong></label>
+    @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+    <br />
+    <label><strong>Konu</strong></label>
+    @Html.TextBoxFor(x => x.Subject, new { @class = "form-control" })
+    <br />
+    <label><strong>Mesaj</strong></label>
+    @Html.TextAreaFor(x => x.MessageContent, 5, 1, new { @class = "form-control" })
+    <br />
+
+    <div class="text-center">
+        <button class="btn btn-warning">Kaydet</button>
+    </div>
+    <br />
+
+</form>

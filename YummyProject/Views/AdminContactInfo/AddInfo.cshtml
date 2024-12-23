@@ -1,0 +1,34 @@
+﻿@model YummyProject.Models.ContactInfo
+@{
+    ViewBag.Title = "AddInfo";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<br />
+<h2>Bilgi Ekleme Sayfası</h2>
+<br />
+
+<form method="post" class="form-control">
+
+    <label><strong>Adres</strong></label>
+    @Html.TextBoxFor(x => x.Address, new { @class = "form-control" })
+    <br />
+    <label><strong>Email</strong></label>
+    @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+    <br />
+    <label><strong>Telefon Numarası</strong></label>
+    @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control" })
+    <br />
+    <label><strong>Harita Adres Linki</strong></label>
+    @Html.TextBoxFor(x => x.MapUrl, new { @class = "form-control" })
+    <br />
+    <label><strong>Çalışma Saatleri</strong></label>
+    @Html.TextBoxFor(x => x.OpenHours, new { @class = "form-control" })
+    <br />
+
+    <div class="text-center">
+        <button class="btn btn-warning">Kaydet</button>
+    </div>
+    <br />
+
+</form>

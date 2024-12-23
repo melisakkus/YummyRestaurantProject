@@ -1,0 +1,45 @@
+﻿@model YummyProject.Models.Testimonial
+@{
+    ViewBag.Title = "UpdateTestimonial";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<br />
+<h2>Referans Düzenleme Sayfası</h2>
+<br />
+
+<form method="post" class="form-check">
+
+    @Html.HiddenFor(x => x.TestimonialId)
+
+    <label><strong>Resim Link</strong></label>
+    @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
+    <br />
+
+    <label><strong>Ad Soyad</strong></label>
+    @Html.TextBoxFor(x => x.NameSurname, new { @class = "form-control" })
+    <br />
+
+    <label><strong>Ünvan</strong></label>
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    <br />
+
+    <label><strong>Yorum</strong></label>
+    @Html.TextAreaFor(x => x.Comment, 3, 1, new { @class = "form-control" })
+    <br />
+
+    <label><strong>Puanlama</strong></label>
+    <select name="Rating" class="form-control">
+        <option disabled selected>Lütfen Seçim Yapınız</option>
+        <option value="1" @(Model.Rating == 1 ? "selected" : "" ) >1</option>
+        <option value="2" @(Model.Rating == 2 ? "selected" : "" ) >2</option>
+        <option value="3" @(Model.Rating == 3 ? "selected" : "" ) >3</option>
+        <option value="4" @(Model.Rating == 4 ? "selected" : "" ) >4</option>
+        <option value="5" @(Model.Rating == 5 ? "selected" : "" ) >5</option>
+    </select>
+    <br />
+
+    <div class="text-center">
+        <button class="btn btn-warning">Güncelle</button>
+    </div>
+</form>

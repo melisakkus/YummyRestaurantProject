@@ -1,0 +1,47 @@
+﻿@model List<YummyProject.Models.ChefSocial>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<br />
+<h2>Şef Sosyal Medya Düzenleme Sayfası</h2>
+<br />
+
+<table class="table table-hover">
+    <tr>
+        <th>Şef</th>
+        <th>İkon</th>
+        <th>Link</th>
+        <th>Site İsmi</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Chef.NameSurname</td>
+            <td><img src="@item.Icon" style="width:60px;height:40px" /></td>
+
+            @if (string.IsNullOrEmpty(item.Url))
+            {
+                <td><a href="/AdminChefSocial/UpdateChefSocials/@item.ChefSocialId" class="btn btn-warning">Yok</a></td>
+            }
+            else
+            {
+                <td><button class="btn btn-outline-warning">Var</button></td>
+            }
+            <td>@item.SocialMediaName</td>
+            <td><a href="/AdminChefSocial/DeleteChefSocial/@item.ChefSocialId" class="btn btn-danger">Sil</a></td>
+            <td><a href="/AdminChefSocial/UpdateChefSocials/@item.ChefSocialId" class="btn btn-primary">Güncelle</a></td>
+        </tr>
+    }
+</table>
+
+<br />
+<div class="text-center">
+    <a href="/AdminChefSocial/AddChefSocials" class="btn btn-success">Yeni Sosyal Medya Ekle</a>
+</div>
+

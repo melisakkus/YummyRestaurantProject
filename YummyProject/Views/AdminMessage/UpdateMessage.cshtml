@@ -1,0 +1,39 @@
+﻿@model YummyProject.Models.Message
+@{
+    ViewBag.Title = "UpdateMessage";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<br />
+<h2>Mesaj Güncelleme Sayfası</h2>
+<br />
+
+<form method="post" class="form-control">
+
+    @Html.HiddenFor(x => x.MessageId)
+
+    <label><strong>Ad Soyad</strong></label>
+    @Html.TextBoxFor(x => x.NameSurname, new { @class = "form-control" })
+    <br />
+    <label><strong>Email</strong></label>
+    @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+    <br />
+    <label><strong>Konu</strong></label>
+    @Html.TextBoxFor(x => x.Subject, new { @class = "form-control" })
+    <br />
+    <label><strong>Mesaj</strong></label>
+    @Html.TextAreaFor(x => x.MessageContent, 5, 1, new { @class = "form-control" })
+    <br />
+    <label><strong>Okunma Durumu</strong></label>
+    <select name="IsRead" class="form-control">
+        <option value="true" @(Model.IsRead == true ? "selected" : " ")>Okundu</option>
+        <option value="false" @(Model.IsRead == false ? "selected" : " ")>Okunmadı</option>
+    </select> 
+    <br />
+
+    <div class="text-center">
+        <button class="btn btn-warning">Güncelle</button>
+    </div>
+    <br />
+
+</form>

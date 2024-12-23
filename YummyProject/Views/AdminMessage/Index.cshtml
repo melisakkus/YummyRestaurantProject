@@ -1,0 +1,58 @@
+﻿@model List<YummyProject.Models.Message>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<br />
+<h2>Mesaj Düzenleme Sayfası</h2>
+<br />
+
+<table class="table table-hover">
+    <tr>
+        <th>Okundu İşaretle</th>
+        <th>Ad Soyad</th>
+        <th>Email</th>
+        <th>Konu</th>
+        <th>Mesaj</th>
+        <th>Okunma Durumu</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            @if (item.IsRead == false)
+            {
+                <td><a href="/AdminMessage/IsRead/@item.MessageId" class="btn btn-warning">✓✓</a></td>
+            }
+            else
+            {
+                <td></td>
+            }
+
+            <td>@item.NameSurname</td>
+            <td>@item.Email</td>
+            <td>@item.Subject</td>
+
+            <td> @(item.MessageContent.Length <= 60 ? item.MessageContent : item.MessageContent.Substring(0,60) + "...") </td>
+
+            @if (item.IsRead == true)
+            {
+                <td><button class="btn btn-outline-warning">✓✓</button></td>
+            }
+            else
+            {
+                <td><a href="/AdminMessage/UpdateMessage/@item.MessageId" class="btn btn-warning">Okunmadı</a></td>
+            }
+            <td><a href="/AdminMessage/DeleteMessage/@item.MessageId" class="btn btn-danger">Sil</a></td>
+            <td><a href="/AdminMessage/UpdateMessage/@item.MessageId" class="btn btn-primary">Güncelle</a></td>
+        </tr>
+    }
+</table>
+
+<br />
+<div class="text-center">
+    <a href="/AdminMessage/AddMessage" class="btn btn-success">Yeni Mesaj Ekle</a>
+</div>

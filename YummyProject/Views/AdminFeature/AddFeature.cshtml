@@ -25,7 +25,7 @@
     <br />
 
     <label><strong>Açıklama</strong></label>
-    @Html.TextAreaFor(x => x.Description, 1, 4, new { @class = "form-control" })
+    @Html.TextAreaFor(x => x.Description, 3,1, new { @class = "form-control" })
     <div class="text-danger">
         @Html.ValidationMessageFor(x => x.Description)
     </div>

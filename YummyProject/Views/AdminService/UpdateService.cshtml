@@ -1,0 +1,30 @@
+﻿@model YummyProject.Models.Service
+@{
+    ViewBag.Title = "UpdateService";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+<br />
+<h2>Hizmet Güncelleme Sayfası</h2>
+<br />
+
+<form method="post" class="form-control">
+
+    @Html.HiddenFor(x=>x.ServiceId)
+
+    <label><strong>Başlık</strong></label>
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    <br />
+    <label><strong>Açıklama</strong></label>
+    @Html.TextBoxFor(x => x.Description, new { @class = "form-control" })
+    <br />
+    <label><strong>Ikon</strong></label>
+    @Html.TextBoxFor(x => x.Icon, new { @class = "form-control" })
+    <br />
+
+    <div class="text-center">
+        <button class="btn btn-warning">Güncelle</button>
+    </div>
+    <br />
+
+</form>
+

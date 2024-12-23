@@ -1,0 +1,41 @@
+﻿@model YummyProject.Models.Booking
+@{
+    ViewBag.Title = "AddBooking";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<br />
+<h2>Rezervasyon Ekleme Sayfası</h2>
+<br />
+
+<form method="post" class="form-control">
+
+    <label><strong>Ad Soyad</strong></label>
+    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    <br />
+    <label><strong>Email</strong></label>
+    @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+    <br />
+    <label><strong>Telefon Numarası</strong></label>
+    @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control" })
+    <br />
+    <label><strong>Rezervasyon Tarihi</strong></label>
+    @Html.TextBoxFor(x => x.BookingDate, new { @class = "form-control" })
+    <br />
+    <label><strong>Kişi Sayısı</strong></label>
+    @Html.TextBoxFor(x => x.PersonCount, new { @class = "form-control" })
+    <br />
+    <label><strong>Mesaj</strong></label>
+    @Html.TextAreaFor(x => x.MessageContent,3,1, new { @class = "form-control" })
+    <br />
+    <label><strong>Onay Durumu</strong></label>
+    @Html.TextBoxFor(x => x.IsApproved, new { @class = "form-control" })
+    <br />
+    <div class="text-center">
+        <button class="btn btn-warning">Kaydet</button>
+    </div>
+    <br />
+
+</form>
+
+

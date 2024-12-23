@@ -1,0 +1,43 @@
+﻿@model YummyProject.Models.Testimonial
+@{
+    ViewBag.Title = "AddTestimonial";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<br />
+<h2>Referans Ekleme Sayfası</h2>
+<br />
+
+<form method="post" class="form-check">
+
+    <label><strong>Resim Link</strong></label>
+    @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
+    <br />
+
+    <label><strong>Ad Soyad</strong></label>
+    @Html.TextBoxFor(x => x.NameSurname, new { @class = "form-control" })
+    <br />
+
+    <label><strong>Ünvan</strong></label>
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    <br />
+
+    <label><strong>Yorum</strong></label>
+    @Html.TextAreaFor(x => x.Comment, 5, 1, new { @class = "form-control" })
+    <br />
+
+    <label><strong>Puanlama</strong></label>
+    <select name="Rating" class="form-control">
+        <option disabled selected>Lütfen Seçim Yapınız</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+    <br />
+
+    <div class="text-center">
+        <button class="btn btn-success">Kaydet</button>
+    </div>
+</form>

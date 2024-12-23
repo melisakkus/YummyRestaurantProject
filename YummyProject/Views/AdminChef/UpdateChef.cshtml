@@ -1,0 +1,39 @@
+﻿@model YummyProject.Models.Chef
+@{
+    ViewBag.Title = "UpdateChef";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<br />
+<h2>Şef Bilgileri Güncelleme Sayfası</h2>
+<br />
+
+<form method="post" class="form-control">
+
+    @Html.HiddenFor(x => x.ChefId)
+
+    <label><strong>Resim Link</strong></label>
+    @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
+    <br />
+    <label><strong>Ad Soyad</strong></label>
+    @Html.TextBoxFor(x => x.NameSurname, new { @class = "form-control" })
+    <br />
+    <label><strong>Ünvan</strong></label>
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    <br />
+    <label><strong>Tanım</strong></label>
+    @Html.TextBoxFor(x => x.Description, new { @class = "form-control" })
+    <br />
+    @*<label><strong>Sosyal Medya - İnstagram</strong></label>
+    @Html.TextBoxFor(x => x.ChefSocials, new { @class = "form-control" })
+    <br />
+    <label><strong>Sosyal Medya - Hakkında</strong></label>
+    @Html.TextBoxFor(x => x.ChefSocials, new { @class = "form-control" })
+    <br />*@
+
+    <div class="text-center">
+        <button class="btn btn-warning">Güncelle</button>
+    </div>
+    <br />
+
+</form>
