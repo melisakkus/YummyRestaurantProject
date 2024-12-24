@@ -23,7 +23,7 @@
     @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
     <br />
     <label><strong>Kategori</strong></label>
-    @Html.TextBoxFor(x => x.CategoryId, new { @class = "form-control" })
+    @Html.DropDownListFor(x=>x.CategoryId,(List<SelectListItem>)ViewBag.kategoriler, new { @class = "form-control" })
     <br />
     <div class="text-center">
         <button class="btn btn-warning">Kaydet</button>

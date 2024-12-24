@@ -13,7 +13,7 @@
     @Html.HiddenFor(x => x.ChefSocialId)
 
     <label><strong>Şef</strong></label>
-    @Html.TextBoxFor(x => x.Chef, new { @class = "form-control" })
+    @Html.TextBoxFor(x => x.Chef.NameSurname, new { @class = "form-control" })
     <br />
 
     <label><strong>Bağlantı</strong></label>

@@ -24,16 +24,41 @@
     <label><strong>Tanım</strong></label>
     @Html.TextBoxFor(x => x.Description, new { @class = "form-control" })
     <br />
-    @*<label><strong>Sosyal Medya - İnstagram</strong></label>
-    @Html.TextBoxFor(x => x.ChefSocials, new { @class = "form-control" })
-    <br />
-    <label><strong>Sosyal Medya - Hakkında</strong></label>
-    @Html.TextBoxFor(x => x.ChefSocials, new { @class = "form-control" })
-    <br />*@
 
+    @if (Model.ChefSocials != null && Model.ChefSocials.Any())
+    {
+        foreach (var item in Model.ChefSocials)
+        {
+            <label><strong>Sosyal Medya - @item.SocialMediaName </strong></label>
+            <br />
+            <input name="Url" value="@item.Url" class="form-control" />
+            <br />
+
+            <label><strong>Sosyal Medya - Ikon </strong></label>
+            <br />
+            <input name="Icon" value="@item.Icon" class="form-control" />
+            <br />
+        }
+    }
+    else
+    {
+        <label><strong>Sosyal Medya İsmi </strong></label>
+        <input name="SocialMediaName" class="form-control" />
+        <br />
+
+        <label><strong>Sosyal Medya Link </strong></label>
+        <input name="Url" class="form-control" />
+        <br />
+
+        <label><strong>Sosyal Medya Ikon </strong></label>
+        <input name="Icon" class="form-control" />
+        <br />
+    }
+   
     <div class="text-center">
         <button class="btn btn-warning">Güncelle</button>
     </div>
     <br />
 
 </form>
+<br />

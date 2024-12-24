@@ -28,13 +28,13 @@
             <td>@item.Title</td>
             <td>@item.Description</td>
 
-                <td>
-                    @foreach (var socials in item.ChefSocials)
-                    {
+            <td>
+                @foreach (var socials in item.ChefSocials)
+                {
 
-                        <img src="@socials.Icon" style="width:30px;height:30px" />
-                    }
-                </td>
+                    <img src="@socials.Icon" style="width:30px;height:30px" />
+                }
+            </td>
 
             <td><a href="/AdminChef/DeleteChef/@item.ChefId" class="btn btn-danger">Sil</a></td>
             <td><a href="/AdminChef/UpdateChef/@item.ChefId" class="btn btn-primary">Güncelle</a></td>
@@ -46,4 +46,5 @@
 <div class="text-center">
     <a href="/AdminChef/AddChef" class="btn btn-success">Yeni Şef Ekle</a>
 </div>
+<br />
 

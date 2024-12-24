@@ -11,7 +11,7 @@
 <form method="post" class="form-control">
 
     <label><strong>Şef</strong></label>
-    @Html.TextBoxFor(x => x.Chef, new { @class = "form-control" })
+    @Html.DropDownListFor(x=>x.ChefId, (List<SelectListItem>)ViewBag.şefler , new { @class = "form-control" })
     <br />
 
     <label><strong>Bağlantı</strong></label>

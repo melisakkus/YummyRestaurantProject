@@ -28,6 +28,14 @@ namespace YummyProject.Controllers
         [HttpGet]
         public ActionResult UpdateProduct(int id)
         {
+            List<SelectListItem> kategoriler = (from x in context.Categories
+                                                select new SelectListItem
+                                                {
+                                                    Text = x.CategoryName,
+                                                    Value = x.CategoryId.ToString()
+                                                }).ToList();
+            ViewBag.kategoriler = kategoriler;
+
             var value = context.Products.Find(id);
             return View(value);
         }
@@ -47,6 +55,20 @@ namespace YummyProject.Controllers
         [HttpGet]
         public ActionResult AddProduct()
         {
+            List<SelectListItem> kategoriler = (from x in context.Categories
+                                                select new SelectListItem
+                                                {
+                                                    Text = x.CategoryName,
+                                                    Value = x.CategoryId.ToString()
+                                                }).ToList();
+            kategoriler.Insert(0, new SelectListItem
+            {
+                Text = "Lütfen kategori seçiniz.",
+                Value = "", 
+                Selected = true,
+                Disabled = true
+            });
+            ViewBag.kategoriler = kategoriler;
             return View();
         }
         [HttpPost]

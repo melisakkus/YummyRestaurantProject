@@ -38,7 +38,7 @@ namespace YummyProject.Controllers
             old.Url = social.Url;
             old.Icon = social.Icon;
             old.SocialMediaName= social.SocialMediaName;
-            old.ChefId = social.ChefId;
+            //old.ChefId = social.ChefId;
             context.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -46,6 +46,20 @@ namespace YummyProject.Controllers
         [HttpGet]
         public ActionResult AddChefSocials()
         {
+            List<SelectListItem> şefler = (from i in context.Chefs
+                                           select new SelectListItem
+                                           {
+                                               Text = i.NameSurname,
+                                               Value = i.ChefId.ToString()
+                                           }).ToList();
+            şefler.Insert(0, new SelectListItem
+            {
+                Text = "Lütfen Şef Seçiniz.",
+                Value = "",
+                Selected = true,
+                Disabled = true
+            });
+            ViewBag.şefler = şefler;
             return View();
         }
         [HttpPost]

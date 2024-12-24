@@ -42,20 +42,19 @@
                     <div class="row gy-5">
                         @foreach (var product in category.Products)
                         {
-
-
                             <div class="col-lg-4 menu-item">
-                                <a href="@product.ImageUrl" class="glightbox"><img src="@product.ImageUrl" class="menu-img img-fluid" alt=""></a>
+                                <a href="@product.ImageUrl" class="glightbox"><img src="@product.ImageUrl" style="width:300px;height:200px" alt=""></a>
+                                <br />
+                                <br />
                                 <h4>@product.ProductName</h4>
                                 <p class="ingredients">
                                     @product.Ingredients
                                 </p>
+                                <br />
                                 <p class="price">
                                     ₺@product.Price
                                 </p>
                             </div><!-- Menu Item -->
-
-
                         }
                     </div>
                 </div><!-- End Starter Menu Content -->
