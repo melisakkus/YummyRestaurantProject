@@ -8,6 +8,7 @@ using YummyProject.Models;
 
 namespace YummyProject.Controllers
 {
+    [Authorize]
     public class AdminFeatureController : Controller
     {
         YummyContext context = new YummyContext();
