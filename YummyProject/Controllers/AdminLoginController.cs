@@ -9,6 +9,7 @@ using YummyProject.Models;
 
 namespace YummyProject.Controllers
 {
+    [AllowAnonymous]
     public class AdminLoginController : Controller
     {
         YummyContext context = new YummyContext();
@@ -32,9 +33,16 @@ namespace YummyProject.Controllers
             Session["currentUser"] = admin.UserName;
             if (returnUrl != null)
             {
-                return RedirectToAction(returnUrl);
+                return Redirect(returnUrl);
             }
             return RedirectToAction("Index","AdminDashboard");
+        }
+
+        public ActionResult SignOut()
+        {
+            FormsAuthentication.SignOut();
+            Session.Abandon();
+            return RedirectToAction("SignIn","AdminLogin");
         }
     }
 }
