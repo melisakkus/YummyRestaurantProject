@@ -20,17 +20,28 @@
     @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control" })
     <br />
     <label><strong>Rezervasyon Tarihi</strong></label>
-    <input type="date" name="BookingDate" class="form-control"/>
+    <input type="date" name="BookingDate" class="form-control" />
     @*@Html.TextBoxFor(x => x.BookingDate, new { @class = "form-control" })*@
     <br />
     <label><strong>Kişi Sayısı</strong></label>
-    @Html.TextBoxFor(x => x.PersonCount, new { @class = "form-control" })
+    <select name="PersonCount" class="form-control">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option disabled>Daha fazla kişi için rezervasyon yaptırmak isterseniz bizimle iletişime geçin.</option>
+    </select>
     <br />
     <label><strong>Mesaj</strong></label>
-    @Html.TextAreaFor(x => x.MessageContent,3,1, new { @class = "form-control" })
+    @Html.TextAreaFor(x => x.MessageContent, 3, 1, new { @class = "form-control" })
     <br />
     <label><strong>Onay Durumu</strong></label>
-    @Html.TextBoxFor(x => x.IsApproved, new { @class = "form-control" })
+    <select name="IsApproved" class="form-control">
+        <option value="true">Onaylandı</option>
+        <option value="false">Onaylanmadı</option>
+    </select>
     <br />
     <div class="text-center">
         <button class="btn btn-warning">Kaydet</button>

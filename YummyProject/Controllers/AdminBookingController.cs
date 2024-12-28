@@ -17,6 +17,14 @@ namespace YummyProject.Controllers
             return View(bookings);
         }
 
+        public ActionResult IsApproved(int id)
+        {
+            var booking = context.Bookings.Find(id);
+            booking.IsApproved = true;
+            context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
         public ActionResult DeleteBooking(int id)
         {
             var value = context.Bookings.Find(id);
@@ -56,7 +64,9 @@ namespace YummyProject.Controllers
         {
             context.Bookings.Add(newBooking);
             context.SaveChanges();
-            return RedirectToAction("Index");
+            return View(newBooking);
         }
+       
+
     }
 }

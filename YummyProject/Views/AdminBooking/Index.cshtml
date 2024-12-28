@@ -5,10 +5,79 @@
 }
 
 <br />
-<h2>Rezervasyon Düzenleme Sayfası</h2>
+<div class="text-center">
+    <h2>Rezervasyon Düzenleme Sayfası</h2>
+    <br />
+</div>
+
+
+<br />
+<h3>Onay Bekleyen Rezervasyonlar</h3>
 <br />
 
-<table class="table table-hover">
+<table class="table table-hover table-bordered">
+    <tr>
+        <th>Ad Soyad</th>
+        <th>Email</th>
+        <th>Tel No</th>
+        <th>Tarih</th>
+        <th>Kişi Sayısı</th>
+        <th>Mesaj</th>
+        <th>Onay Durumu</th>
+        <th>Onaylansın Mı?</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.IsApproved == false)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Email</td>
+                <td>@item.PhoneNumber</td>
+                <td>@item.BookingDate.ToString("yyyy-MM-dd")</td>
+                <td>@item.PersonCount</td>
+                <td> @(item.MessageContent != null && item.MessageContent.Length > 30 ? item.MessageContent.Substring(0, 30) + "..." : @item.MessageContent)</td>
+
+                @if (item.IsApproved == true)
+                {
+                    <td><button class="btn btn-outline-warning">Onaylandı</button></td>
+                }
+                else
+                {
+                    <td><button class="btn btn-warning">Onaylanmadı</button></td>
+                }
+
+                @if (item.IsApproved == false)
+                {
+                    <td>
+                        <a href="/AdminBooking/IsApproved/@item.BookingId" class="btn btn-success">
+                            Onayla
+                        </a>
+                    </td>
+                }
+                else
+                {
+                    <td></td>
+                }
+
+                <td><a href="/AdminBooking/DeleteBooking/@item.BookingId" class="btn btn-danger">Sil</a></td>
+                <td><a href="/AdminBooking/UpdateBooking/@item.BookingId" class="btn btn-primary">Güncelle</a></td>
+            </tr>
+        }
+    }
+</table>
+
+
+
+<br />
+<h3>Onaylanan Rezervasyonlar</h3>
+<br />
+
+<table class="table table-hover table-bordered">
     <tr>
         <th>Ad Soyad</th>
         <th>Email</th>
@@ -24,17 +93,24 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>@item.Name</td>
-            <td>@item.Email</td>
-            <td>@item.PhoneNumber</td>
-            <td>@item.BookingDate</td>
-            <td>@item.PersonCount</td>
-            <td>@item.MessageContent</td>
-            <td>@item.IsApproved</td>
-            <td><a href="/AdminBooking/DeleteBooking/@item.BookingId" class="btn btn-danger">Sil</a></td>
-            <td><a href="/AdminBooking/UpdateBooking/@item.BookingId" class="btn btn-primary">Güncelle</a></td>
-        </tr>
+        if (item.IsApproved == true)
+        {
+
+
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Email</td>
+                <td>@item.PhoneNumber</td>
+                <td>@item.BookingDate.ToString("yyyy-MM-dd")</td>
+                <td>@item.PersonCount</td>
+                <td> @(item.MessageContent != null && item.MessageContent.Length > 30 ? item.MessageContent.Substring(0, 30) + "..." : @item.MessageContent)</td>
+
+                <td><button class="btn btn-outline-warning">Onaylandı</button></td>
+
+                <td><a href="/AdminBooking/DeleteBooking/@item.BookingId" class="btn btn-danger">Sil</a></td>
+                <td><a href="/AdminBooking/UpdateBooking/@item.BookingId" class="btn btn-primary">Güncelle</a></td>
+            </tr>
+        }
     }
 </table>
 

@@ -20,7 +20,9 @@ namespace YummyProject.Controllers
             ViewBag.MaxPriceProduct = context.Products.OrderByDescending(x=>x.Price).Select(x=>x.ProductName).FirstOrDefault();
             ViewBag.MinPriceProduct = context.Products.OrderBy(x => x.Price).Select(x => x.ProductName).FirstOrDefault();
             ViewBag.AvgPrice = context.Products.Average(x => x.Price);
-            return View();
+
+            var value = context.Products.OrderByDescending(x => x.ProductId).ToList();
+            return View(value);
         }
     }
 }

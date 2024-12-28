@@ -1,22 +1,22 @@
-﻿
+﻿@model YummyProject.Models.Message
 
-<form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="600">
+<form action="/Default/DefaultSendMessage" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="600">
     <div class="row gy-4">
 
         <div class="col-md-6">
-            <input type="text" name="name" class="form-control" placeholder="Ad Soyad" required="">
+            <input type="text" name="NameSurname" class="form-control" placeholder="Ad Soyad" required="">
         </div>
 
         <div class="col-md-6 ">
-            <input type="email" class="form-control" name="email" placeholder="Email" required="">
+            <input type="email" class="form-control" name="Email" placeholder="Email" required="">
         </div>
 
         <div class="col-md-12">
-            <input type="text" class="form-control" name="subject" placeholder="Konu" required="">
+            <input type="text" class="form-control" name="Subject" placeholder="Konu" required="">
         </div>
 
         <div class="col-md-12">
-            <textarea class="form-control" name="message" rows="6" placeholder="Mesaj" required=""></textarea>
+            <textarea class="form-control" name="MessageContent" rows="6" placeholder="Mesaj" required=""></textarea>
         </div>
 
         <div class="col-md-12 text-center">

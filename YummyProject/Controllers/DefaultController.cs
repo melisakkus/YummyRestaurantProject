@@ -14,6 +14,14 @@ namespace YummyProject.Controllers
         YummyContext context = new YummyContext();
         public ActionResult Index()
         {
+            var numberofProducts = context.Products.Count().ToString();
+            ViewBag.NumberofProducts = numberofProducts;
+            var numberofChefs = context.Chefs.Count();
+            ViewBag.NumberofChefs = numberofChefs;
+            var numberofEvents = context.Events.Count();
+            ViewBag.NumberofEvents = numberofEvents;
+            var numberofTestimonial = context.Testimonials.Count();
+            ViewBag.NumberofTestimonial = numberofTestimonial;
             return View();
         }
 
@@ -65,6 +73,20 @@ namespace YummyProject.Controllers
             return PartialView();
         }
 
+        [HttpGet]
+        public ActionResult DefaultAddBooking()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult DefaultAddBooking(Booking booking)
+        {
+            context.Bookings.Add(booking);
+            context.SaveChanges();
+            return RedirectToAction("Index","Default");
+        }
+
         public PartialViewResult DefaultPhotoGallery()
         {
             var values = context.PhotoGalleries.ToList();
@@ -74,6 +96,13 @@ namespace YummyProject.Controllers
         public PartialViewResult DefaultMessage()
         {
             return PartialView();
+        }
+
+        public ActionResult DefaultSendMessage(Message message)
+        {
+            context.Messages.Add(message);
+            context.SaveChanges();
+            return View("Index");
         }
 
         public PartialViewResult DefaultContact() 
