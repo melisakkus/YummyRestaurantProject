@@ -73,18 +73,12 @@ namespace YummyProject.Controllers
             return PartialView();
         }
 
-        [HttpGet]
-        public ActionResult DefaultAddBooking()
-        {
-            return View();
-        }
-
         [HttpPost]
-        public ActionResult DefaultAddBooking(Booking booking)
+        public string DefaultAddBooking(Booking booking)
         {
             context.Bookings.Add(booking);
             context.SaveChanges();
-            return RedirectToAction("Index","Default");
+            return "Başarıyla tamamlandı";
         }
 
         public PartialViewResult DefaultPhotoGallery()
