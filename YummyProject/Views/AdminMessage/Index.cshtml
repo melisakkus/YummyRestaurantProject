@@ -44,7 +44,13 @@
                 <td>@item.Email</td>
                 <td>@item.Subject</td>
 
-                <td> @(item.MessageContent.Length <= 60 ? item.MessageContent : item.MessageContent.Substring(0,60) + "...") </td>
+                <td>
+                    @(item != null && !string.IsNullOrEmpty(item.MessageContent)
+        ? (item.MessageContent.Length <= 60
+            ? item.MessageContent
+            : item.MessageContent.Substring(0, 60) + "...")
+        : "Mesaj yok")
+                </td>
 
                 <td><a href="/AdminMessage/DeleteMessage/@item.MessageId" class="btn btn-danger">Sil</a></td>
                 <td><a href="/AdminMessage/UpdateMessage/@item.MessageId" class="btn btn-primary">Güncelle</a></td>
