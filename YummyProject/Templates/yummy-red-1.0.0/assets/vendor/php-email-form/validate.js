@@ -45,7 +45,7 @@
             })
             .then(data => {
                 thisForm.querySelector('.loading').classList.remove('d-block');
-                if (data.trim().includes("successfully")) {
+                if (data.trim().includes("tamam")) {
                     thisForm.querySelector('.sent-message').classList.add('d-block');
                     thisForm.querySelector('.sent-message').innerHTML = data;
                     thisForm.reset();

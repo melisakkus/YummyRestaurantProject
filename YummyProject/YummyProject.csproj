@@ -134,6 +134,7 @@
     <Compile Include="Controllers\AdminChefController.cs" />
     <Compile Include="Controllers\AdminChefSocialController.cs" />
     <Compile Include="Controllers\AdminContactInfoController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AdminDashboardController.cs" />
     <Compile Include="Controllers\AdminEventController.cs" />
     <Compile Include="Controllers\AdminFeatureController.cs" />
@@ -555,9 +556,19 @@
     <Content Include="Templates\login-form-02\scss\bootstrap\_variables.scss" />
     <Content Include="Templates\login-form-02\scss\style.scss" />
     <Content Include="Views\AdminLogin\SignIn.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Pictures\Abouts\" />
+    <Folder Include="Pictures\Admins\" />
+    <Folder Include="Pictures\ChefSocials\" />
+    <Folder Include="Pictures\Chefs\" />
+    <Folder Include="Pictures\Events\" />
+    <Folder Include="Pictures\Features\" />
+    <Folder Include="Pictures\PhotoGallery\" />
+    <Folder Include="Pictures\Products\" />
+    <Folder Include="Pictures\Testimonials\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

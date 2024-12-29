@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -13,6 +14,9 @@ namespace YummyProject.Models
         public string SocialMediaName { get; set; }
         public int ChefId { get; set; }
         public virtual Chef Chef { get; set; }
+
+        [NotMapped]
+        public HttpPostedFileBase ImageFile { get; set; }
 
     }
 }

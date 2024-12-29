@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -35,6 +36,18 @@ namespace YummyProject.Controllers
         public ActionResult UpdateChef(Chef chef)
         {
             var oldChef = context.Chefs.Find(chef.ChefId);
+            if(chef.ImageFile != null)
+            {
+                var currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                var saveLocation = currentDirectory + "Pictures\\Chefs\\";
+                var fileName = Path.Combine(saveLocation + chef.ImageFile.FileName);
+                chef.ImageFile.SaveAs(fileName);
+                chef.ImageUrl = "/Pictures/Chefs/" + chef.ImageFile.FileName;
+            }
+            else
+            {
+                chef.ImageUrl = oldChef.ImageUrl;
+            }
             oldChef.ImageUrl = chef.ImageUrl;
             oldChef.NameSurname = chef.NameSurname;
             oldChef.Title = chef.Title;
@@ -52,6 +65,11 @@ namespace YummyProject.Controllers
         [HttpPost]
         public ActionResult AddChef(Chef newChef)
         {
+            var currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            var saveLocation = currentDirectory + "Pictures\\Chefs\\";
+            var fileName = Path.Combine(saveLocation+newChef.ImageFile.FileName);
+            newChef.ImageFile.SaveAs(fileName);
+            newChef.ImageUrl = "/Pictures/Chefs/" + newChef.ImageFile.FileName;
             context.Chefs.Add(newChef);
             context.SaveChanges();
             return RedirectToAction("Index");

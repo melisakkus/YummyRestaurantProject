@@ -8,10 +8,10 @@
 <h2>Ürün Ekleme Sayfası</h2>
 <br />
 
-<form method="post" class="form-control">
+<form method="post" enctype="multipart/form-data" class="form-control">
 
-    <label><strong>Resim</strong></label>
-    @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
+    <label><strong>Resim Yükleyiniz</strong></label>
+    <input type="file" name="ImageFile" class="form-control" />
     <br />
     <label><strong>İsim</strong></label>
     @Html.TextBoxFor(x => x.ProductName, new { @class = "form-control" })
@@ -23,7 +23,7 @@
     @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
     <br />
     <label><strong>Kategori</strong></label>
-    @Html.DropDownListFor(x=>x.CategoryId,(List<SelectListItem>)ViewBag.kategoriler, new { @class = "form-control" })
+    @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.kategoriler, new { @class = "form-control" })
     <br />
     <div class="text-center">
         <button class="btn btn-warning">Kaydet</button>

@@ -8,13 +8,20 @@
 <h2>Şef Bilgileri Güncelleme Sayfası</h2>
 <br />
 
-<form method="post" class="form-control">
+<form method="post" enctype="multipart/form-data" class="form-control">
 
     @Html.HiddenFor(x => x.ChefId)
 
-    <label><strong>Resim Link</strong></label>
-    @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
+    <div class="text-center">
+        <label><strong>Kullanılan Resim</strong></label>
+        <br />
+        <img src="@Model.ImageUrl" style="width:500px ; height:300px " />
+    </div>
     <br />
+
+    <label><strong>Yeni Resim Yükle</strong></label>
+    <input type="file" name="ImageFile" class="form-control" />
+
     <label><strong>Ad Soyad</strong></label>
     @Html.TextBoxFor(x => x.NameSurname, new { @class = "form-control" })
     <br />

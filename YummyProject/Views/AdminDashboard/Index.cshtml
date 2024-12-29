@@ -6,79 +6,67 @@
 
 <h1 class="mt-4">İstatistikler</h1>
 <ol class="breadcrumb mb-4">
-    @*<li class="breadcrumb-item active">Dashboard</li>*@
     <li class="breadcrumb-item active">İstatistikler</li>
 </ol>
+
 <div class="row">
-    <div class="col-xl-3 col-md-6">
-        <div class="card bg-dark text-white mb-4">
+    <div class="col-xl-3 col-md-6 d-flex align-items-stretch">
+        <div class="card bg-dark text-white mb-4 w-100">
             <div class="card-body">Toplam Aperatif Çeşit Sayısı</div>
-            <span class="card-body display-6"><strong> @ViewBag.AperatifCount </strong></span>
+            <span class="card-body display-6"><strong>@ViewBag.AperatifCount</strong></span>
         </div>
     </div>
-    <div class="col-xl-3 col-md-6">
-        <div class="card bg-dark text-white mb-4">
+
+    <div class="col-xl-3 col-md-6 d-flex align-items-stretch">
+        <div class="card bg-dark text-white mb-4 w-100">
             <div class="card-body">Toplam Kahvaltı Çeşit Sayısı</div>
-            <span class="card-body display-6"><strong> @ViewBag.BreakfastCount </strong></span>
+            <span class="card-body display-6"><strong>@ViewBag.BreakfastCount</strong></span>
         </div>
     </div>
-    <div class="col-xl-3 col-md-6">
-        <div class="card bg-dark text-white mb-4">
+
+    <div class="col-xl-3 col-md-6 d-flex align-items-stretch">
+        <div class="card bg-dark text-white mb-4 w-100">
             <div class="card-body">Toplam Öğle Yemeği Çeşit Sayısı</div>
-            <span class="card-body display-6"><strong> @ViewBag.LunchCount </strong></span>
+            <span class="card-body display-6"><strong>@ViewBag.LunchCount</strong></span>
         </div>
     </div>
-    <div class="col-xl-3 col-md-6">
-        <div class="card bg-dark text-white mb-4">
+
+    <div class="col-xl-3 col-md-6 d-flex align-items-stretch">
+        <div class="card bg-dark text-white mb-4 w-100">
             <div class="card-body">Toplam Akşam Yemeği Çeşit Sayısı</div>
-            <span class="card-body display-6"><strong> @ViewBag.DinnerCount </strong></span>
+            <span class="card-body display-6"><strong>@ViewBag.DinnerCount</strong></span>
         </div>
     </div>
-    <div class="col-xl-3 col-md-6">
-        <div class="card bg-primary text-white mb-4">
+
+    <div class="col-xl-3 col-md-6 d-flex align-items-stretch">
+        <div class="card bg-primary text-white mb-4 w-100">
             <div class="card-body">Toplam Yorum Sayısı</div>
-            <span class="card-body display-6"><strong>@ViewBag.CommentCount </strong></span>
+            <span class="card-body display-6"><strong>@ViewBag.CommentCount</strong></span>
         </div>
     </div>
-    <div class="col-xl-3 col-md-6">
-        <div class="card bg-warning text-white mb-4">
-            <div class="card-body">En Düşük Fiyatlı Ürün</div>
-            <span class="card-body display-7"><strong>@ViewBag.MinPriceProduct </strong></span>
-        </div>
-    </div>
-    <div class="col-xl-3 col-md-6">
-        <div class="card bg-success text-white mb-4">
-            <div class="card-body">En Yüksek Fiyatlı Ürün</div>
-            <span class="card-body display-7"><strong>@ViewBag.MaxPriceProduct</strong></span>
-        </div>
-    </div>
-    <div class="col-xl-3 col-md-6">
-        <div class="card bg-danger text-white mb-4">
+
+    <div class="col-xl-3 col-md-6 d-flex align-items-stretch">
+        <div class="card bg-danger text-white mb-4 w-100">
             <div class="card-body">Ürünlerin Ortalama Fiyatı</div>
             <span class="card-body display-6"><strong>₺@ViewBag.AvgPrice.ToString("00.00")</strong></span>
         </div>
     </div>
+
+    <div class="col-xl-3 col-md-6 d-flex align-items-stretch">
+        <div class="card bg-warning text-white mb-4 w-100">
+            <div class="card-body">En Düşük Fiyatlı Ürün</div>
+            <span class="card-body display-7"><strong>@ViewBag.MinPriceProduct</strong></span>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 d-flex align-items-stretch">
+        <div class="card bg-success text-white mb-4 w-100">
+            <div class="card-body">En Yüksek Fiyatlı Ürün</div>
+            <span class="card-body display-7"><strong>@ViewBag.MaxPriceProduct</strong></span>
+        </div>
+    </div>
 </div>
-@*<div class="row">
-    <div class="col-xl-6">
-        <div class="card mb-4">
-            <div class="card-header">
-                <i class="fas fa-chart-area me-1"></i>
-                Area Chart Example
-            </div>
-            <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
-        </div>
-    </div>
-    <div class="col-xl-6">
-        <div class="card mb-4">
-            <div class="card-header">
-                <i class="fas fa-chart-bar me-1"></i>
-                Bar Chart Example
-            </div>
-            <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
-        </div>
-    </div>
-</div>*@
+
 <div class="card mb-4">
     <div class="card-header">
         <i class="fas fa-table me-1"></i>
@@ -94,16 +82,16 @@
                     <th>Fiyatı</th>
                 </tr>
             </thead>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <th>@item.ProductName</th>
-                        <th>@item.Category.CategoryName</th>
-                        <th>@item.Ingredients</th>
-                        <th>@item.Price</th>
-                    </tr>
-                }
-            
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th>@item.ProductName</th>
+                    <th>@item.Category.CategoryName</th>
+                    <th>@item.Ingredients</th>
+                    <th>@item.Price</th>
+                </tr>
+            }
+
         </table>
     </div>
 </div>

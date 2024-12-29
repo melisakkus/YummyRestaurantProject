@@ -8,15 +8,18 @@
 <h2>Alan Güncelleme Sayfası</h2>
 <br />
 
-<form method="post" class="form-control">
+<form method="post" enctype="multipart/form-data" class="form-control">
 
     @Html.HiddenFor(x => x.FeatureId)
 
-    <label><strong>Resim Url</strong></label>
-    @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
-    <div class="text-danger">
-        @Html.ValidationMessageFor(x => x.ImageUrl)
+    <label><strong>Kullanılan Resim</strong></label>
+    <div class="text-center">
+        <img src="@Model.ImageUrl" style="width:400px;height:300px" />
     </div>
+    <br />
+
+    <label><strong>Resim Yükleyiniz</strong></label>
+    <input type="file" name="ImageFile" class="form-control" />
     <br />
 
     <label><strong>Başlık</strong></label>

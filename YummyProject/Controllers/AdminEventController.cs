@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -35,7 +36,15 @@ namespace YummyProject.Controllers
         public ActionResult UpdateEvent(Event newEvent)
         {
             var oldEvent = context.Events.Find(newEvent.EventId);
-            oldEvent.ImageUrl = newEvent.ImageUrl;
+            if(newEvent.ImageFile != null)
+            {
+                var currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                var saveLocation = currentDirectory + "Pictures\\Events\\";
+                var fileName = Path.Combine(saveLocation + newEvent.ImageFile.FileName);
+                newEvent.ImageFile.SaveAs(fileName);
+                oldEvent.ImageUrl = "/Pictures/Events/" + newEvent.ImageFile.FileName;
+            }
+
             oldEvent.Title = newEvent.Title;
             oldEvent.Description = newEvent.Description;
             oldEvent.Price = newEvent.Price;
@@ -51,6 +60,11 @@ namespace YummyProject.Controllers
         [HttpPost]
         public ActionResult AddEvent(Event newEvent)
         {
+            var currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            var saveLocation = currentDirectory + "Pictures\\Events\\";
+            var fileName = Path.Combine(saveLocation + newEvent.ImageFile.FileName);
+            newEvent.ImageFile.SaveAs(fileName);
+            newEvent.ImageUrl = "/Pictures/Events/" + newEvent.ImageFile.FileName;
             context.Events.Add(newEvent);
             context.SaveChanges();
             return RedirectToAction("Index");

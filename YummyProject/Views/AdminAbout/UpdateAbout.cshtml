@@ -8,16 +8,40 @@
 <h2>Hakkımda Güncelleme</h2>
 <br />
 
-<form method="post" class="form-control">
+<form method="post" enctype="multipart/form-data" class="form-control">
 
-    @Html.HiddenFor(x=>x.AboutId)
+    @Html.HiddenFor(x => x.AboutId)
 
-    <label><strong>Resim 1</strong></label>
-    @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
+    <label><strong>Mevcut Resim 1</strong></label>
+    <div class="text-center">
+        <br />
+        <img src="@Model.ImageUrl" style="width:400px;height:300px" />
+        <br />
+    </div>
     <br />
 
-    <label><strong>Resim 2</strong></label>
-    @Html.TextBoxFor(x => x.ImageUrl2, new { @class = "form-control" })
+    <label><strong>Yeni 1. Resim Seçiniz</strong></label>
+    <div class="text-center">
+        <br />
+        <input type="file" name="ImageFile" class="form-control" />
+        <br />
+    </div>
+    <br />
+
+    <label><strong>Mevcut Resim 2</strong></label>
+    <div class="text-center">
+        <br />
+        <img src="@Model.ImageUrl2" style="width:400px;height:300px" />
+        <br />
+    </div>
+    <br />
+
+    <label><strong>Yeni 2. Resim Seçiniz</strong></label>
+    <div class="text-center">
+        <br />
+        <input type="file" name="ImageFile2" class="form-control" />
+        <br />
+    </div>
     <br />
 
     <label><strong>Cümle 1</strong></label>
@@ -33,7 +57,7 @@
     <br />
 
     <label><strong>Açıklama</strong></label>
-    @Html.TextAreaFor(x => x.Description,3,1, new { @class = "form-control" })
+    @Html.TextAreaFor(x => x.Description, 3, 1, new { @class = "form-control" })
     <br />
 
     <label><strong>Video</strong></label>

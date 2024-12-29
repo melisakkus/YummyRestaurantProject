@@ -8,13 +8,20 @@
 <h2>Ürün Güncelleme Sayfası</h2>
 <br />
 
-<form method="post" class="form-control">
+<form method="post" enctype="multipart/form-data" class="form-control">
 
     @Html.HiddenFor(x => x.ProductId)
 
-    <label><strong>Resim</strong></label>
-    @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
+    <label><strong>Kullanılan Resim</strong></label>
+    <div class="text-center">
+        <img src="@Model.ImageUrl" style="width:400px;height:300px" />
+    </div>
     <br />
+
+    <label><strong>Resim Yükleyiniz</strong></label>
+    <input type="file" name="ImageFile" class="form-control" />
+    <br />
+
     <label><strong>İsim</strong></label>
     @Html.TextBoxFor(x => x.ProductName, new { @class = "form-control" })
     <br />
@@ -25,7 +32,7 @@
     @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
     <br />
     <label><strong>Kategori</strong></label>
-    @Html.DropDownListFor(x=>x.CategoryId, (List<SelectListItem>)ViewBag.kategoriler, new { @class = "form-control" })
+    @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.kategoriler, new { @class = "form-control" })
     <br />
     <div class="text-center">
         <button class="btn btn-warning">Güncelle</button>

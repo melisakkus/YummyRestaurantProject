@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -36,9 +37,17 @@ namespace YummyProject.Controllers
         {
             var old = context.ChefSocials.Find(social.ChefSocialId);
             old.Url = social.Url;
-            old.Icon = social.Icon;
+
+            if (social.ImageFile != null)
+            {
+                var currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                var saveLocation = currentDirectory + "Pictures\\ChefSocials\\";
+                var fileName = Path.Combine(saveLocation + social.ImageFile.FileName);
+                social.ImageFile.SaveAs(fileName);
+                social.Icon = "Pictures/ChefSocials/" + social.ImageFile.FileName;
+                old.Icon = social.Icon;
+            }
             old.SocialMediaName= social.SocialMediaName;
-            //old.ChefId = social.ChefId;
             context.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -65,6 +74,14 @@ namespace YummyProject.Controllers
         [HttpPost]
         public ActionResult AddChefSocials(ChefSocial newChefSocial)
         {
+            if(newChefSocial.ImageFile != null)
+            {
+                var currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                var saveLocation = currentDirectory + "Pictures\\ChefSocials\\";
+                var fileName = Path.Combine(saveLocation + newChefSocial.ImageFile.FileName);
+                newChefSocial.ImageFile.SaveAs(fileName);
+                newChefSocial.Icon = "Pictures/ChefSocials/" + newChefSocial.ImageFile.FileName;
+            }
             context.ChefSocials.Add(newChefSocial);
             context.SaveChanges();
             return RedirectToAction("Index");

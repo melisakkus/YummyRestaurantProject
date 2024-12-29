@@ -9,10 +9,10 @@
 <h2>Fotoğraf Ekleme Sayfası</h2>
 <br />
 
-<form method="post" class="form-control">
+<form method="post" enctype="multipart/form-data" class="form-control">
 
-    <label><strong>Resim Link</strong></label>
-    @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
+    <label><strong>Resim Yükleyiniz</strong></label>
+    <input type="file" name="ImageFile" class="form-control" />
     <br />
 
     <div class="text-center">

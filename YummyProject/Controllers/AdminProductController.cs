@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Web;
 using System.Web.Mvc;
 using YummyProject.Context;
@@ -43,8 +45,11 @@ namespace YummyProject.Controllers
         public ActionResult UpdateProduct(Product newProduct)
         {
             var old = context.Products.Find(newProduct.ProductId);
-            old.ImageUrl = newProduct.ImageUrl;
-            old.ProductName = newProduct.ProductName;
+            var currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            var saveLocation = currentDirectory + "Pictures\\Products\\";
+            var fileName = Path.Combine(saveLocation + newProduct.ImageFile.FileName);
+            newProduct.ImageFile.SaveAs(fileName);
+            old.ImageUrl = "/Pictures/Products/" + newProduct.ImageFile.FileName;
             old.Ingredients = newProduct.Ingredients;
             old.Price = newProduct.Price;
             old.CategoryId = newProduct.CategoryId;
@@ -74,6 +79,11 @@ namespace YummyProject.Controllers
         [HttpPost]
         public ActionResult AddProduct(Product newProduct)
         {
+            var currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            var saveLocation = currentDirectory + "Pictures\\Products\\";
+            var fileName = Path.Combine(saveLocation + newProduct.ImageFile.FileName);
+            newProduct.ImageFile.SaveAs(fileName);
+            newProduct.ImageUrl = "/Pictures/Products/" + newProduct.ImageFile.FileName;
             context.Products.Add(newProduct);
             context.SaveChanges();
             return RedirectToAction("Index");

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -22,5 +23,8 @@ namespace YummyProject.Models
 
         [Required(ErrorMessage = "Video linki boş bırakılamaz.")]
         public string VideoUrl { get; set; }
+
+        [NotMapped]
+        public HttpPostedFileBase ImageFile { get; set; }
     }
 }

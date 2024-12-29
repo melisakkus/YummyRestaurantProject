@@ -92,11 +92,12 @@ namespace YummyProject.Controllers
             return PartialView();
         }
 
-        public ActionResult DefaultSendMessage(Message message)
+        [HttpPost]
+        public string DefaultSendMessage(Message message)
         {
             context.Messages.Add(message);
             context.SaveChanges();
-            return View("Index");
+            return "Başarıyla tamamlandı";
         }
 
         public PartialViewResult DefaultContact() 

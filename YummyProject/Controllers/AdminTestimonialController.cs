@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -36,7 +37,14 @@ namespace YummyProject.Controllers
         public ActionResult UpdateTestimonial(Testimonial newTestimonial)
         {
             var testimonial = context.Testimonials.Find(newTestimonial.TestimonialId);
-            testimonial.ImageUrl = newTestimonial.ImageUrl;
+            if (newTestimonial.ImageFile != null)
+            {
+                var currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                var saveLocation = currentDirectory + "Pictures\\Testimonials\\";
+                var fileName = Path.Combine(saveLocation + newTestimonial.ImageFile.FileName);
+                newTestimonial.ImageFile.SaveAs(fileName);
+                testimonial.ImageUrl = "/Pictures/Testimonials/" + newTestimonial.ImageFile.FileName;
+            }
             testimonial.NameSurname = newTestimonial.NameSurname;
             testimonial.Title = newTestimonial.Title;
             testimonial.Comment = newTestimonial.Comment;
@@ -54,6 +62,11 @@ namespace YummyProject.Controllers
         [HttpPost]
         public ActionResult AddTestimonial(Testimonial newTestimonial)
         {
+            var currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            var saveLocation = currentDirectory + "Pictures\\Testimonials\\";
+            var fileName = Path.Combine(saveLocation + newTestimonial.ImageFile.FileName);
+            newTestimonial.ImageFile.SaveAs(fileName);
+            newTestimonial.ImageUrl = "/Pictures/Testimonials/" + newTestimonial.ImageFile.FileName;
             context.Testimonials.Add(newTestimonial);
             context.SaveChanges();
             return RedirectToAction("Index");

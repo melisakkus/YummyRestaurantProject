@@ -8,13 +8,10 @@
 <h2>Yeni Alan Ekleme Sayfası</h2>
 <br />
 
-<form method="post" class="form-control">
+<form method="post" enctype="multipart/form-data" class="form-control">
 
-    <label><strong>Resim Url</strong></label>
-    @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
-    <div class="text-danger">
-        @Html.ValidationMessageFor(x => x.ImageUrl)
-    </div>
+    <label><strong>Resim Yükleyiniz</strong></label>
+    <input type="file" name="ImageFile" class="form-control" />
     <br />
 
     <label><strong>Başlık</strong></label>

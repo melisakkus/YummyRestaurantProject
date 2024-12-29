@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -16,5 +17,11 @@ namespace YummyProject.Models
         public string Description { get; set; }
         public string VideoUrl { get; set; }
         public string PhoneNumber { get; set; }
+
+        [NotMapped]
+        public HttpPostedFileBase ImageFile { get; set; }
+
+        [NotMapped]
+        public HttpPostedFileBase ImageFile2 { get; set; }
     }
 }

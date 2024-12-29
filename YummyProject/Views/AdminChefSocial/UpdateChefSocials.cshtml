@@ -8,7 +8,7 @@
 <h2>Şef Sosyal Medya Güncelleme Sayfası</h2>
 <br />
 
-<form method="post" class="form-control">
+<form method="post"  enctype="multipart/form-data" class="form-control">
 
     @Html.HiddenFor(x => x.ChefSocialId)
 
@@ -19,9 +19,12 @@
     <label><strong>Bağlantı</strong></label>
     @Html.TextBoxFor(x => x.Url, new { @class = "form-control" })
     <br />
-    <label><strong>İkon</strong></label>
+    <label><strong>Mevcut İkon</strong></label>
     @Html.TextBoxFor(x => x.Icon, new { @class = "form-control" })
     <br />
+
+    <label><strong>Yeni İkon Ekle</strong></label>
+    <input name="ImageFile" type="file" class="form-control"/>
     <label><strong>Site İsmi</strong></label>
     @Html.TextBoxFor(x => x.SocialMediaName, new { @class = "form-control" })
     <br />

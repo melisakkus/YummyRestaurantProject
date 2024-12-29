@@ -7,14 +7,14 @@
 <h2>Yeni Hakkımda Alanı Ekle</h2>
 <br />
 
-<form method="post" class="form-control">
+<form method="post" enctype="multipart/form-data" class="form-control">
 
-    <label><strong>Resim 1</strong></label>
-    @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
+    <label><strong>1. Resim Seçiniz</strong></label>
+    <input type="file" name="ImageFile" class="form-control" />
     <br />
 
-    <label><strong>Resim 2</strong></label>
-    @Html.TextBoxFor(x => x.ImageUrl2, new { @class = "form-control" })
+    <label><strong>2. Resim Seçiniz</strong></label>
+    <input type="file" name="ImageFile2" class="form-control" />
     <br />
 
     <label><strong>Cümle 1</strong></label>

@@ -1,0 +1,42 @@
+﻿@model YummyProject.Models.Admin
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<br />
+<h2>Admin Bilgileri</h2>
+<br />
+
+<form method="post" enctype="multipart/form-data" class="form-control">
+
+    @Html.HiddenFor(x => x.AdminId)
+
+    <label><strong>Kullanılan Resim</strong></label>
+    <div class="text-center">
+        <img src="@Model.ImageUrl" style="width:500px;height:300px" />
+    </div>
+    <br />
+
+    <label><strong>Resim Seçiniz</strong></label>
+    <input type="file" name="ImageFile" class="form-control" />
+    <br />
+
+    <label><strong>Ad Soyad</strong></label>
+    @Html.TextBoxFor(x => x.NameSurname, new { @class = "form-control" })
+    <br />
+
+    <label><strong>Kullanıcı Adı</strong></label>
+    @Html.TextBoxFor(x => x.UserName, new { @class = "form-control" })
+    <br />
+
+    <label><strong>Şifre </strong></label>
+    @Html.TextBoxFor(x => x.Password, new { @class = "form-control" })
+    <br />
+
+    <div class="text-center">
+        <button class="btn btn-success">Güncelle</button>
+    </div>
+    
+</form>
+

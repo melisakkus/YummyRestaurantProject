@@ -1,5 +1,6 @@
-﻿ using System;
+﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -34,7 +35,18 @@ namespace YummyProject.Controllers
         [HttpPost]
         public ActionResult AddAbout(About newAbout)
         {
-            context.Abouts.Add(newAbout);   
+
+            var currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            var saveLocation = currentDirectory + "Pictures\\Abouts\\";
+            var fileName = Path.Combine(saveLocation + newAbout.ImageFile.FileName);
+            newAbout.ImageFile.SaveAs(fileName);
+            newAbout.ImageUrl = "/Pictures/Abouts/" + newAbout.ImageFile.FileName;
+
+            var fileName2 = Path.Combine(saveLocation + newAbout.ImageFile2.FileName);
+            newAbout.ImageFile2.SaveAs(fileName2);
+            newAbout.ImageUrl2 = "/Pictures/Abouts/" + newAbout.ImageFile2.FileName;
+
+            context.Abouts.Add(newAbout);
             context.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -50,8 +62,26 @@ namespace YummyProject.Controllers
         public ActionResult UpdateAbout(About newAbout)
         {
             var about = context.Abouts.Find(newAbout.AboutId);
-            about.ImageUrl = newAbout.ImageUrl;
-            about.ImageUrl2 = newAbout.ImageUrl2;
+            if (newAbout.ImageFile != null)
+            {
+                var currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                var saveLocation = currentDirectory + "Pictures\\Abouts\\";
+                var fileName = Path.Combine(saveLocation + newAbout.ImageFile.FileName);
+                newAbout.ImageFile.SaveAs(fileName);
+                newAbout.ImageUrl = "/Pictures/Abouts/" + newAbout.ImageFile.FileName;
+                about.ImageUrl = newAbout.ImageUrl;
+            }
+
+            if (newAbout.ImageFile2 != null)
+            {
+                var currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                var saveLocation = currentDirectory + "Pictures\\Abouts\\";
+                var fileName = Path.Combine(saveLocation + newAbout.ImageFile2.FileName);
+                newAbout.ImageFile2.SaveAs(fileName);
+                newAbout.ImageUrl2 = "/Pictures/Abouts/" + newAbout.ImageFile2.FileName;
+                about.ImageUrl2 = newAbout.ImageUrl2;
+
+            }
             about.Item1 = newAbout.Item1;
             about.Item2 = newAbout.Item2;
             about.Item3 = newAbout.Item3;
